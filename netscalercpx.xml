@@ -1,43 +1,18 @@
- <?xml version="1.0" encoding="utf-8"?>
- <Container version="2">
+<?xml version="1.0"?>
+<Container version="2">
    <Name>NetScalerCPX</Name>
    <Registry></Registry>
    <Repository>quay.io/citrix/citrix-k8s-cpx-ingress:13.0-76.29</Repository>
+   <TemplateURL>https://raw.githubusercontent.com/frankol/docker-templates/master/netscalercpx.xml</TemplateURL>
    <Privileged>true</Privileged>
    <Shell>bash</Shell>
    <Support>not yet</Support>
-   <Project/>
    <Overview>
 	NetScaler CPX Appliance. You should bind it to an separate IP
    </Overview>
    <Category>Network:Proxy</Category>
    <WebUI>http://[IP]:[PORT:9080]/</WebUI>
-   <TemplateURL/>
    <Network>bridge</Network>
-       <Publish>
-      <Port>
-        <HostPort>9080</HostPort>
-        <ContainerPort>9080</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-	  <Port>
-        <HostPort>9022</HostPort>
-        <ContainerPort>22</ContainerPort>
-        <Protocol>tcp</Protocol>
-      </Port>
-    </Publish>
-  </Networking>
-    <Data>
-    <Volume>
-      <HostDir>/mnt/user/netscalercpx/</HostDir>
-      <ContainerDir>/cpx</ContainerDir>
-      <Mode>rw</Mode>
-    </Volume>
-	</Data>
-   <MyIP/>
-   <Environment/>
-   <Labels/>
-   <TemplateURL/>
    <Icon>https://github.com/frankol/docker-templates/raw/master/citrix-receiver-icon.png</Icon>
    <ExtraParams/>
    <PostArgs/>
