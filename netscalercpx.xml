@@ -14,7 +14,7 @@
    <WebUI>http://[IP]:[PORT:9080]/</WebUI>
    <Network>bridge</Network>
    <Icon>https://github.com/frankol/docker-templates/raw/master/citrix-receiver-icon.png</Icon>
-   <ExtraParams/>
+   <ExtraParams>--cap-add=NET_ADMIN</ExtraParams>
    <PostArgs/>
    <Config Type="Path" Name="Config directory" Target="/cpx" Default="/mnt/user/netscalercpx" Mode="rw" Description="This is where netscaler cpx will store it's configuration." Required="true">/mnt/user/netscalercpx</Config>
       <Config Type="Variable" Name="CPX_CORES" Target="CPX_CORES" Default="2" Description="CPU Cores to use" Mask="false" Display="always" Required="true">2</Config>
