@@ -16,7 +16,7 @@
    <Icon>https://github.com/frankol/docker-templates/raw/master/citrix-receiver-icon.png</Icon>
    <ExtraParams/>
    <PostArgs/>
-   <Config Type="Path" Name="Config directory" Target="/cpx" Default="/mnt/user/netscalercpx" Mode="rw" Description="This is where netscaler cpx will store it's configuration."Required="true">/mnt/user/netscalercpx</Config>
+   <Config Type="Path" Name="Config directory" Target="/cpx" Default="/mnt/user/netscalercpx" Mode="rw" Description="This is where netscaler cpx will store it's configuration." Required="true">/mnt/user/netscalercpx</Config>
       <Config Type="Variable" Name="CPX_CORES" Target="CPX_CORES" Default="2" Description="CPU Cores to use" Mask="false" Display="always" Required="true">2</Config>
 	  <Config Type="Variable" Name="CPX_NW_DEV" Target="CPX_NW_DEV" Default="br0" Description="Docker Bridge to use" Mask="false" Display="always" Required="true">br0</Config>
 	  <Config Type="Variable" Name="CPX_CONFIG" Target="CPX_CONFIG" Default="" Description="NetScaler configs" Mask="false" Display="advanced" Required="false"></Config>
