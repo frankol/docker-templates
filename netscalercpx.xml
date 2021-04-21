@@ -8,7 +8,9 @@
    <Shell>bash</Shell>
    <Support>not yet</Support>
    <Overview>
-	NetScaler CPX Appliance. You should bind it to an separate IP
+	NetScaler CPX Appliance. Add a separate IP to Unraid. Easy to do with the go file /boot/config/go
+	ip addr add <add second IP to Unraid>/16 dev br0
+	iptables -t nat -A PREROUTING -p ip -d <secondIPY -j DNAT --to-destination 172.17.4.100 <- This IP you can use in NetScaler as content-switch for example
    </Overview>
    <Category>Network:Proxy</Category>
    <WebUI>http://[IP]:[PORT:9080]/</WebUI>
