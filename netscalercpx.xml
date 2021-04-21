@@ -1,0 +1,52 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <Container version="2">
+   <Name>NetScalerCPX</Name>
+   <Registry></Registry>
+   <Repository>quay.io/citrix/citrix-k8s-cpx-ingress:13.0-76.29</Repository>
+   <Privileged>true</Privileged>
+   <Shell>bash</Shell>
+   <Support>not yet</Support>
+   <Project/>
+   <Overview>
+	NetScaler CPX Appliance. You should bind it to an separate IP
+   </Overview>
+   <Category>Network:Proxy</Category>
+   <WebUI>http://[IP]:[PORT:9080]/</WebUI>
+   <TemplateURL/>
+   <Network>bridge</Network>
+       <Publish>
+      <Port>
+        <HostPort>9080</HostPort>
+        <ContainerPort>9080</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+	  <Port>
+        <HostPort>9022</HostPort>
+        <ContainerPort>22</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+    <Data>
+    <Volume>
+      <HostDir>/mnt/user/netscalercpx/</HostDir>
+      <ContainerDir>/cpx</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+	</Data>
+   <MyIP/>
+   <Environment/>
+   <Labels/>
+   <TemplateURL/>
+   <Icon>https://github.com/frankol/docker-templates/raw/master/citrix-receiver-icon.png</Icon>
+   <ExtraParams/>
+   <PostArgs/>
+   <Config Type="Path" Name="Config directory" Target="/cpx" Default="/mnt/user/netscalercpx" Mode="rw" Description="This is where netscaler cpx will store it's configuration."Required="true">/mnt/user/netscalercpx</Config>
+      <Config Type="Variable" Name="CPX_CORES" Target="CPX_CORES" Default="2" Description="CPU Cores to use" Mask="false" Display="always" Required="true">2</Config>
+	  <Config Type="Variable" Name="CPX_NW_DEV" Target="CPX_NW_DEV" Default="br0" Description="Docker Bridge to use" Mask="false" Display="always" Required="true">br0</Config>
+	  <Config Type="Variable" Name="CPX_CONFIG" Target="CPX_CONFIG" Default="" Description="NetScaler configs" Mask="false" Display="advanced" Required="false"></Config>
+	  <Config Type="Variable" Name="PLATFORM" Target="PLATFORM" Default="CP1000" Description="NetScaler license bandwith" Mask="false" Display="advanced" Required="true">CP1000</Config>
+	  <Config Type="Variable" Name="EULA" Target="EULA" Default="yes" Description="wont start without" Mask="false" Display="always" Required="true">yes</Config>
+	  <Config Type="Port" Name="WebUI" Target="9080" Default="9080" Mode="tcp" Description="WEB GUI" Display="always" Required="true">9080</Config>
+	  <Config Type="Port" Name="SSH" Target="22" Default="9022" Mode="tcp" Description="SSH Port" Display="always" Required="true">9022</Config>
+ </Container>
