@@ -1770,9 +1770,13 @@ echo -e "$(cat $FILE_RANDOM_ID)\n$(cat $FILE_RANDOM_ID)" | passwd nsroot
 echo -e "$(cat $FILE_RANDOM_ID)\n$(cat $FILE_RANDOM_ID)" | passwd root
 echo "Updated non-default password for ssh login for users nsroot, root" >> $BOOTUP_LOGS
 $NETNS $BIN/cli_script.sh $BOOTUP_CONF >> $BOOTUP_LOGS
+
+# added to fix WEBUI permissions and show nsroot password
 echo "Fixing WEBGUI permissions.."
 chmod 777 /var/nstmp
-echo "nsroot password is: $(cat /var/deviceinfo/random_id)" 
+echo "nsroot password is: $(cat /var/deviceinfo/random_id)"
+# custom section end
+
 if [[ -v KUBERNETES_SERVICE_HOST ]]; then
    populate_cpx_restart_config
 fi
