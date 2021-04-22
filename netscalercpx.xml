@@ -14,16 +14,20 @@
    </Overview>
    <Category>Network:Proxy</Category>
    <WebUI>http://[IP]:[PORT:9080]/</WebUI>
-   <Network>bridge</Network>
+   <Network>host</Network>
    <Icon>https://github.com/frankol/docker-templates/raw/master/citrix-receiver-icon.png</Icon>
    <ExtraParams>--cap-add=NET_ADMIN</ExtraParams>
    <PostArgs/>
-   <Config Type="Path" Name="Config directory" Target="/cpx" Default="/mnt/netscalercpx" Mode="rw" Description="This is where netscaler cpx will store it's configuration." Required="true">/mnt/user/netscalercpx</Config>
+   <Config Type="Path" Name="Config directory" Target="/cpx" Default="/mnt/SSD/Docker/appdata/netscalercpx" Mode="rw" Description="This is where netscaler cpx will store it's configuration." Required="true">/mnt/user/netscalercpx</Config>
       <Config Type="Variable" Name="CPX_CORES" Target="CPX_CORES" Default="2" Description="CPU Cores to use" Mask="false" Display="always" Required="true">2</Config>
-	  <Config Type="Variable" Name="CPX_NW_DEV" Target="CPX_NW_DEV" Default="br0" Description="Docker Bridge to use" Mask="false" Display="always" Required="true">br0</Config>
+	  <Config Type="Variable" Name="CPX_NW_DEV" Target="CPX_NW_DEV" Default="eth99" Description="Docker Bridge to use" Mask="false" Display="always" Required="true">eth99</Config>
 	  <Config Type="Variable" Name="CPX_CONFIG" Target="CPX_CONFIG" Default="" Description="NetScaler configs" Mask="false" Display="advanced" Required="false">{"YIELD":"NO"}</Config>
 	  <Config Type="Variable" Name="PLATFORM" Target="PLATFORM" Default="CP1000" Description="NetScaler license bandwith" Mask="false" Display="advanced" Required="true">CP1000</Config>
 	  <Config Type="Variable" Name="EULA" Target="EULA" Default="yes" Description="wont start without" Mask="false" Display="always" Required="true">yes</Config>
 	  <Config Type="Port" Name="WebUI" Target="9080" Default="9080" Mode="tcp" Description="WEB GUI" Display="always" Required="true">9080</Config>
 	  <Config Type="Port" Name="SSH" Target="22" Default="9022" Mode="tcp" Description="SSH Port" Display="always" Required="true">9022</Config>
+	<Config Type="Variable" Name="NS_NETMODE" Target="NS_NETMODE" Default="HOST" Description="NS_NETMODE" Mask="false" Display="always" Required="true">HOST</Config>
+	<Config Type="Variable" Name="NS_IP" Target="NS_IP" Default="172.17.4.98" Description="MGMT-IP" Mask="false" Display="always" Required="true">172.17.4.98</Config>
+	<Config Type="Variable" Name="NS_GATEWAY" Target="NS_GATEWAY" Default="172.17.4.1" Description="GW" Mask="false" Display="always" Required="true">172.17.4.1</Config>
+	<Config Type="Variable" Name="LOCAL_LICENSE" Target="LOCAL_LICENSE" Default="yes" Description="License type" Mask="false" Display="always" Required="true">yes</Config>
  </Container>
